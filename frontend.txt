@@ -1,0 +1,122 @@
+BLACKBOX AI
+
+Sure! To create a simple frontend for your project, you can follow these steps:
+
+1. First, make sure you have Node.js and npm installed on your computer. You can download them from the official website: https://nodejs.org/
+
+2. Next, create a new Vue.js project by running the following command in your terminal:
+
+
+bash
+vue create customer-app
+​
+
+
+3. After the project is created, navigate to the project folder:
+
+
+bash
+cd customer-app
+​
+
+
+4. Now, let's create a new Vue component for adding customers. Create a new file called `AddCustomer.vue` in the `src/components` folder and add the following code:
+
+
+vue
+<template>
+ <div>
+    <h2>Add Customer</h2>
+    <form @submit.prevent="addCustomer">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="customer.name" />
+      </div>
+      <div>
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" v-model="customer.surname" />
+      </div>
+      <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" v-model="customer.phoneNumber" />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="customer.email" />
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" v-model="customer.date" />
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" v-model="customer.description"></textarea>
+      </div>
+      <button type="submit">Add Customer</button>
+    </form>
+ </div>
+</template>
+​
+<script>
+export default {
+ data() {
+    return {
+      customer: {
+        name: "",
+        surname: "",
+        phoneNumber: "",
+        email: "",
+        date: "",
+        description: "",
+      },
+    };
+ },
+ methods: {
+    addCustomer() {
+      // Here you can call your API to add the customer
+      console.log(this.customer);
+    },
+ },
+};
+</script>
+​
+
+
+5. Now, let's import the `AddCustomer` component into the `App.vue` file. Add the following code to the `App.vue` file:
+
+
+vue
+<template>
+ <div id="app">
+    <AddCustomer />
+ </div>
+</template>
+​
+<script>
+import AddCustomer from "./components/AddCustomer.vue";
+​
+export default {
+ name: "App",
+ components: {
+    AddCustomer,
+ },
+};
+</script>
+​
+
+
+6. Finally, run the following command in your terminal to start the development server:
+
+
+bash
+npm run serve
+​
+
+
+Now, you should be able to see your frontend application at `http://localhost:8080/`. You can fill out the form and click the "Add Customer" button to see the customer data logged in the console.
+
+Please note that this is a basic example and you may need to make adjustments based on your specific requirements. Additionally, you will need to implement the logic for calling your API to add the customer. This can be done using libraries like Axios or the built-in `fetch` function in JavaScript.
+
+
+
+I have a customer adding project that I developed with java spring boot. I have two endpoints, adding customers and calling by phone number. My customer fields are name, surName, phoneNumber, email, date and description. I want to make a simple frontend for this project with vue.js, what should I do with the codes? Can you explain it together?
