@@ -4,7 +4,7 @@
       <input type="text" id="phoneNumber" v-model="searchPhoneNumber" />
       <button @click="searchCustomer">Ara</button>
   
-      <!-- Sonuçları göster -->
+     
       <div v-if="customer">
   <h2>Aradığınız Müşteri:</h2>
   <p>Adı: {{ customer.name }}</p>
@@ -20,13 +20,12 @@
   export default {
     data() {
       return {
-        searchPhoneNumber: "", // Aranacak telefon numarası
-        customer: null, // Aranan müşteri bilgileri
+        searchPhoneNumber: "",
+        customer: null, 
       };
     },
     methods: {
       searchCustomer() {
-        // GET isteği yaparak müşteriyi ara
         fetch(`http://localhost:8080/v1/register/${this.searchPhoneNumber}`)
           .then((response) => {
             if (response.status === 200) {
@@ -40,7 +39,7 @@
           })
           .catch((error) => {
             console.error("Hata:", error.message);
-            this.customer = null; // Hata durumunda sonuçları temizle
+            this.customer = null; 
           });
       },
     },
@@ -48,6 +47,5 @@
   </script>
   
   <style scoped>
-  /* İsteğe bağlı CSS stilleri burada tanımlanabilir */
   </style>
   

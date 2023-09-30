@@ -48,7 +48,7 @@ export default {
         email: "",
         explanation: "",
       },
-      errorMessage: "", // Hata mesajı
+      errorMessage: "",
     };
   },
   methods: {
